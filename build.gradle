@@ -1,0 +1,40 @@
+//자바관련 빌드 명령을 사용하기 위해 
+apply plugin: 'java'
+
+apply plugin: 'eclipse'
+
+/* Gradle의 기본폴더구조는 다음과 같다.
+
+
+*/
+//만약 소스 폴더의 구조를 변경하고 싶다면 다음 설정을 추가하라
+
+sourceSets {
+    main {
+       java {
+            srcDir 'src'
+        }
+        resources {
+            srcDir 'src'
+        }
+    }
+}
+
+
+repositories {
+    mavenCentral()  
+}
+
+//어느서버에서 의존 라이브러리를 다운받을지
+//프로젝트에서 사용할 의존 라이브러리 목록을 등록한다.
+//
+dependencies {
+  compile group: 'org.springframework', name: 'spring-context', version: '4.3.4.RELEASE'
+  
+  compile fileTree(dir:'libs', include: '*.jar')
+
+
+}
+
+
+
