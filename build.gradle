@@ -1,6 +1,6 @@
 apply plugin: 'java'
 // 이클립스 웹 프로젝터 관련 설정 파일을 만들어주는 Gradle plugin 추가
-apply plugin: 'eclipse-wtp' // 기존의 eclipse 플러그인을 포함한다.
+apply plugin: 'eclipse-wtp' // 기존의 eclipse 플러그인을 포함한다.fff
 apply plugin: 'war'         // 웹 애플리케이션 아카이브 관련 플러그인.
 
 // Maven 기본 프로젝트 폴더 구조를 따르기 때문에 다음과 같이 
