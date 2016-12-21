@@ -1,40 +1,25 @@
-//자바관련 빌드 명령을 사용하기 위해 
 apply plugin: 'java'
+// 이클립스 웹 프로젝터 관련 설정 파일을 만들어주는 Gradle plugin 추가
+apply plugin: 'eclipse-wtp' // 기존의 eclipse 플러그인을 포함한다.
+apply plugin: 'war'         // 웹 애플리케이션 아카이브 관련 플러그인.
 
-apply plugin: 'eclipse'
-
-/* Gradle의 기본폴더구조는 다음과 같다.
-
-
-*/
-//만약 소스 폴더의 구조를 변경하고 싶다면 다음 설정을 추가하라
-
-sourceSets {
-    main {
-       java {
-            srcDir 'src'
-        }
-        resources {
-            srcDir 'src'
-        }
-    }
-}
-
+// Maven 기본 프로젝트 폴더 구조를 따르기 때문에 다음과 같이 
+// 소스 폴더의 구조를 따로 명시할 필요가 없다.
+//sourceSets {}
 
 repositories {
-    mavenCentral()  
+   mavenCentral()  //https://repo1.maven.org/maven2/ 주소에서 다운로드 받는다.
 }
 
-//어느서버에서 의존 라이브러리를 다운받을지
-//프로젝트에서 사용할 의존 라이브러리 목록을 등록한다.
-//
 dependencies {
-  compile group: 'org.springframework', name: 'spring-context', version: '4.3.4.RELEASE'
-  
+  // 로컬에서 의존 라이브러리 가져오기
   compile fileTree(dir:'libs', include: '*.jar')
-
+  providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
 
 }
+
+
+
 
 
 
